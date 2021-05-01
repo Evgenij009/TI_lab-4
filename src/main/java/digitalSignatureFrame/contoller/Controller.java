@@ -1,4 +1,4 @@
-package main.java.men.frame.controller;
+package men.brakh.digitalSignatureFrame.contoller;
 
 
 
@@ -7,9 +7,13 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.FileChooser;
-import main.java.men.basic.BasicMath;
-import main.java.men.cryptohash.CryptoHash;
-import sun.security.rsa.RSASignature;
+import men.brakh.cryptohash.CryptoHash;
+import men.brakh.cryptohash.impl.SHA1;
+import men.brakh.cryptohash.impl.SHA256;
+import men.brakh.digitalSignature.DigitalSignatureMath;
+import men.brakh.digitalSignature.SignatureAlgorithm;
+import men.brakh.digitalSignature.rsa.RSAPublicKey;
+import men.brakh.digitalSignature.rsa.RSASignature;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -17,7 +21,6 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.security.interfaces.RSAPublicKey;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -117,7 +120,7 @@ public class Controller {
         TextField textField = (TextField) event.getSource();
         try {
             BigInteger q = new BigInteger(textField.getText());
-            if(BasicMath.isPrime(q)) {
+            if(DigitalSignatureMath.isPrime(q)) {
                 textField.setStyle("");
             } else {
                 textField.setStyle(errorStyle);
@@ -277,7 +280,7 @@ public class Controller {
             }
 
             tfExpectedHash.setText(cryptoHash.getIntHash(message).mod(rsaPublicKey.getR()).toString()); // HASH(MESSAGE) MOD R
-            tfActualHash.setText(BasicMath.power(signature, rsaPublicKey.getE(), rsaPublicKey.getR()).toString());
+            tfActualHash.setText(DigitalSignatureMath.power(signature, rsaPublicKey.getE(), rsaPublicKey.getR()).toString());
 
         } catch (ArithmeticException e) {
             errorAlert(e.getMessage());

@@ -1,4 +1,5 @@
-package main.java.men.cryptohash;
+package men.brakh.cryptohash;
+
 import java.math.BigInteger;
 
 public interface CryptoHash {

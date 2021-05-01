@@ -1,4 +1,4 @@
-package main.java.men.basic;
+package men.brakh.digitalSignature;
 
 
 import java.math.BigInteger;
@@ -8,7 +8,7 @@ import java.math.BigInteger;
  * @author Pankratiew Alexandr
  */
 
-public class BasicMath {
+public class DigitalSignatureMath {
 
     /**
      * Calculating the square root of BigInteger number
