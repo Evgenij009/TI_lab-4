@@ -3,11 +3,6 @@ package men.brakh.digitalSignature;
 
 import java.math.BigInteger;
 
-/**
- * Math package for digital signature
- * @author Pankratiew Alexandr
- */
-
 public class DigitalSignatureMath {
 
     /**

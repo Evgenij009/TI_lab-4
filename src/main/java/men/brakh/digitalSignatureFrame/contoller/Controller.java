@@ -1,7 +1,5 @@
 package men.brakh.digitalSignatureFrame.contoller;
 
-
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -11,7 +9,6 @@ import men.brakh.cryptohash.CryptoHash;
 import men.brakh.cryptohash.impl.SHA1;
 import men.brakh.cryptohash.impl.SHA256;
 import men.brakh.digitalSignature.DigitalSignatureMath;
-import men.brakh.digitalSignature.SignatureAlgorithm;
 import men.brakh.digitalSignature.rsa.RSAPublicKey;
 import men.brakh.digitalSignature.rsa.RSASignature;
 
@@ -21,7 +18,6 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -113,8 +109,6 @@ public class Controller {
     private TextField tfCheckSignSignature;
 
 
-
-
     @FXML
     void tfSignPrimeKeyReleased(KeyEvent event) {
         TextField textField = (TextField) event.getSource();
@@ -200,7 +194,6 @@ public class Controller {
 
             tfSignE.setText(rsaPublicKey.getE().toString());
             tfSignR.setText(rsaPublicKey.getR().toString());
-
 
             tfSignSignature.setText(signature.toString());
 
