@@ -5,14 +5,11 @@ import men.brakh.digitalSignature.DigitalSignatureMath;
 import men.brakh.digitalSignature.SignatureAlgorithm;
 
 import java.math.BigInteger;
-import java.security.PublicKey;
 
 public class RSASignature implements SignatureAlgorithm {
     private RSAPrivateKey privateKey;
     private RSAPublicKey publicKey;
     private CryptoHash hashFunction;
-
-
 
     public RSAPublicKey getPublicKey() {
         return publicKey;
